@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: metrics-collector
+  namespace: monitoring
+spec:
+  serviceAccountName: metrics-collector-sa
+  containers:
+  - name: collector
+    image: curlimages/curl:latest
+    command:
+    - sh
+    - -c
+    - |
+      echo "Starting metrics collector..."
+      while true; do
+        sleep 30
+      done
